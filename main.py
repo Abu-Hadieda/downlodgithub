@@ -1,60 +1,160 @@
+import asyncio
+from pyrogram import Client, filters
+from random import choice
+from pyrogram import filters
+from strings import get_command
+from strings.filters import command
+from config import BANNED_USERS
+from typing import Union
+from pyrogram.types import InlineKeyboardButton
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup, ReplyKeyboardRemove, Message, ChatJoinRequest
 from config import Config
 import telebot
 import random
-# مصدر الملف: قناتي: AlmortagelTech | مبرمج الملف: Almortagel8
 
 tok = Config.TG_BOT_TOKEN
 
-bot = telebot.TeleBot(tok)
+app = telebot.TeleBot(tok)
 
-Dev = Mak().add(Btn('Almortagel',url="tg://user?id=5089553588"));more = Mak().add(Btn('More Bots',url='AlmortagelTech.t.me'))
-headers = {
-    'authority': 'natega.youm7.com','accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9','accept-language': 'ar-EG,ar;q=0.9,en-US;q=0.8,en;q=0.7','cache-control': 'max-age=0','content-type': 'application/x-www-form-urlencoded','dnt': '1','origin': 'https://natega.youm7.com','referer': 'https://natega.youm7.com/','sec-ch-ua': '"Chromium";v="105", "Not)A;Brand";v="8"','sec-ch-ua-mobile': '?1','sec-ch-ua-platform': '"Android"','sec-fetch-dest': 'document','sec-fetch-mode': 'navigate','sec-fetch-site': 'same-origin','sec-fetch-user': '?1','upgrade-insecure-requests': '1','user-agent': UserAgent().random,}
+#كسمك تحياتي😂
+REPLY_MESSAGE = "**🧑🏻‍✈️︙اهلا  بك عزيزي في  ♥️**\n**⤵️︙ بوت القران الكريم**"
 
-@bot.message_handler(commands=["start"])
-def welcome(message):
-    bot.reply_to(message,f'— اهلا بك عزيزي {message.from_user.first_name} في بوت جلب نتيجه الثانويه لعام 2023 "مصر"\n— ارسل رقم الجلوس المكون من *7* ارقام',parse_mode="markdown",reply_markup=more)
+REPLY_MESSAGE_BUTTONS = [
+    [
+             ("المطور"),                   
+             ("سورس")
+          ],
+          [
+              ("قران"),
+              ("نقشبندي")
+          ],
+          [
+              ("عبدالباسط"),
+              ("تلاوات")
+          ],
+          [           
+        ("❎ ¦ حذف الكيبورد")
+    ]
+]
 
-@bot.message_handler(content_types=['text'])
-def infoo(message):
-    try:
-        number = message.text
-        if not number.isdigit():
-            bot.reply_to(message, 'رقم الجلوس يجب أن يحتوي على أرقام فقط.')
-            return
-        data = {'seatNo': number}
-        response = requests.post('https://natega.youm7.com/Home/Natega', headers=headers, data=data).text
+@app.on_message(command("start") & filters.private & ~filters.edited)
+async def madison(client: Client, message: Message): 
+    text = REPLY_MESSAGE
+    reply_markup = ReplyKeyboardMarkup(REPLY_MESSAGE_BUTTONS, one_time_keyboard=True, resize_keyboard=True)
+    await message.reply(
+        text=text,
+        reply_markup=reply_markup
+    )
 
-        info1 = re.findall(r'<span>\s*(.*?)\s*</span>', response)
-        name, sch, lern, condi, Section = info1[0], info1[1], info1[2], info1[3], info1[5]
 
-        info2 = re.findall(r'<h1>(.*?)</h1>', response)
-        num, all, ratio = info2[0], info2[1], info2[2]
+@app.on_message(command("❎ ¦ حذف الكيبورد") & filters.private & ~filters.edited)
+async def upbkgt(client: Client, message: Message):
+    await message.reply_text(
+        text="""❎ ¦ تم حذف الكيبورد بنجاح""",
+        reply_markup=ReplyKeyboardRemove()
+    )
 
-        info3 = re.findall(r'<span class="formatt4">(.*?)</span>', response)
-        subjects = info3[:13]
+@app.on_message(command(["تلاوات", "تلاوة"]))
+async def ihd(client: Client, message: Message):
+    rl = random.randint(24,618)
+    url = f"https://t.me/EIEI06/{rl}"
+    await client.send_voice(message.chat.id,url,caption="🥹♥ ¦ تـم اختيـار تلاوة قرآنيه لـك",parse_mode="html",
+    reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+                ],
+            ]
+        )
+    )
+    
+    @app.on_message(command(["سوره", "قران"]))
+async def ihd(client: Client, message: Message):
+    rl = random.randint(2,82)
+    url = f"https://t.me/opuml/{rl}"
+    await client.send_voice(message.chat.id,url,caption="🥹♥ ¦ تـم اختيـار ايـه قرآنيه لـك",parse_mode="html",
+    reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+                ],
+            ]
+        )
+    )
 
-        subjects_text = '\n'.join([f'{subject}: {grade}' for subject, grade in zip([
-            'اللغة العربية', 'اللغة الأجنبية الأولى', 'اللغة الأجنبية الثانية',
-            'الرياضيات البحتة', 'التاريخ', 'الجغرافيا', 'الفلسفة والمنطق',
-            'علم النفس والاجتماع', 'الكيمياء', 'الأحياء', 'الجيولوجيا وعلوم البيئة',
-            'الرياضيات التطبيقية', 'الفيزياء'
-        ], subjects)])
+@app.on_message(command(["الشيخ", "النقشبندي", "نقشبندي"]))
+async def ihd(client: Client, message: Message):
+    rl = random.randint(2,114)
+    url = f"https://t.me/ggcnjj/{rl}"
+    await client.send_voice(message.chat.id,url,caption="🥹♥ ¦ تـم اختيـار الشيخ نقشبندي لـك",parse_mode="html",
+    reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+                ],
+            ]
+        )
+    )
+    
+@app.on_message(command(["عبدالباسط", "عبدالباسط عبدالصمد"]))
+async def ihd(client: Client, message: Message):
+    rl = random.randint(7,265)
+    url = f"https://t.me/telawatnader/{rl}"
+    await client.send_voice(message.chat.id,url,caption="🥹♥ ¦ تـم اختيـار الشيخ عبدالباسط لـك",parse_mode="html",
+    reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+                ],
+            ]
+        )
+    )
+    
+    txt = [
 
-        text = f'''الاسم: {name}
-رقم الجلوس: {num}
-المجموع: {all}
-المدرسة: {sch}
-الإدارة: {lern}
-حالة الطالب: {condi}
-النسبة: {ratio}
-الشعبة: {Section}
-— — — — — —
-{subjects_text}
-مجموع الدرجات: {all}'''
 
-        bot.reply_to(message, text, reply_markup=Dev)
-    except:
-        bot.reply_to(message,'تأكد من رقم الجلوس .')
+"االلَّهُمَّ أَعِنِّي عَلَى ذِكْرِكَ , وَشُكْرِكَ , وَحُسْنِ عِبَادَتِكَ🎈💞 ",
+"من الأدعية النبوية المأثورة:اللهمَّ زَيِّنا بزينة الإيمان",
+"اااللهم يا من رويت الأرض مطرا أمطر قلوبنا فرحا 🍂 ",
+"اا‏اللَّهُـمَّ لَڪَ الحَمْـدُ مِنْ قَـا؏ِ الفُـؤَادِ إلىٰ ؏َـرشِڪَ المُقـدَّس حَمْـدَاً يُوَافِي نِـ؏ـمَڪ 💙🌸",
+"﴿وَاذْكُرِ اسْمَ رَبِّكَ وَتَبَتَّلْ إِلَيْهِ تَبْتِيلًا﴾🌿✨",
+"﴿وَمَن يَتَّقِ اللهَ يُكَفِّرْ عَنْهُ سَيِّئَاتِهِ وَيُعْظِمْ لَهُ أَجْرًا﴾",
+"«سُبْحَانَ اللهِ ، وَالحَمْدُ للهِ ، وَلَا إلَهَ إلَّا اللهُ ، وَاللهُ أكْبَرُ ، وَلَا حَوْلَ وَلَا قُوَّةَ إلَّا بِاللهِ»🍃",
+"وذُنُوبًا شوَّهتْ طُهْرَ قُلوبِنا؛ اغفِرها يا ربّ واعفُ عنَّا ❤️",
+"«اللَّهُمَّ اتِ نُفُوسَنَا تَقْوَاهَا ، وَزَكِّهَا أنْتَ خَيْرُ مَنْ زَكَّاهَا ، أنْتَ وَلِيُّهَا وَمَوْلَاهَا»🌹",
+"۝‏﷽إن اللَّه وملائكته يُصلُّون على النبي ياأيُّها الذين امنوا صلُّوا عليه وسلِّموا تسليما۝",
+"فُسِبًحً بًحًمًدٍ ربًکْ وٌکْنِ مًنِ الَسِاجّدٍيَنِ 🌿✨",
+"اأقُمً الَصّلَاةّ لَدٍلَوٌکْ الَشُمًسِ إلَيَ غُسِقُ الَلَيَلَ🥀🌺",
+"نِسِتٌغُفُرکْ ربًيَ حًيَتٌ تٌلَهّيَنِا الَدٍنِيَا عٌنِ ذِکْرکْ🥺😢",
+"وٌمًنِ أعٌرض عٌنِ ذِکْريَ فُإنِ لَهّ مًعٌيَشُةّ ضنِکْا 😢",
+"وٌقُرأنِ الَفُجّر إنِ قُرانِ الَفُجّر کْانِ مًشُهّوٌدٍا🎀🌲",
+"اأّذّأّ أّلَدِنِيِّأّ نَِّستّګوِ أّصٌلَګوِ زِّوِروِ أّلَمَقِأّبِر💔",
+"حًتٌيَ لَوٌ لَمًتٌتٌقُنِ الَخِفُظُ فُمًصّاحًبًتٌ لَلَقُرانِ تٌجّعٌلَکْ مًنِ اهّلَ الَلَهّ وٌخِاصّتٌهّ❤🌱",
+"وٌإذِا رضيَتٌ وٌصّبًرتٌ فُهّوٌ إرتٌقُاء وٌنِعٌمًةّ✨??",
+"«ربً اجّعٌلَنِيَ مًقُيَمً الَصّلَاةّ وٌمًنِ ذِريَتٌيَ ربًنِا وٌتٌقُبًلَ دٍعٌاء 🤲",
+"ااعٌلَمً انِ رحًلَةّ صّبًرکْ لَهّا نِهّايَهّ عٌظُيَمًهّ مًحًمًلَهّ بًجّوٌائزٍ ربًانِيَهّ مًدٍهّشُهّ🌚☺️",
+"اإيَاکْ وٌدٍعٌوٌةّ الَمًظُلَوٌمً فُ إنِهّا تٌصّعٌدٍ الَيَ الَلَهّ کْأنِهّا شُرارهّ مًنِ نِار 🔥🥺",
+"االَلَهّمً انِقُذِ صّدٍوٌرنِا مًنِ هّيَمًنِهّ الَقُلَقُ وٌصّبً عٌلَيَهّا فُيَضا مًنِ الَطِمًأنِيَنِهّ✨🌺",
+"يَابًنِيَ إنِ صّلَاح الَحًيَاةّ فُ أتٌجّاهّ الَقُبًلَهّ 🥀🌿",
+"الَلَهّمً ردٍنِا إلَيَکْ ردٍا جّمًيَلَا💔🥺",
 
-bot.infinity_polling()
+
+        ]
+
+
+        
+
+
+@app.on_message(command(["اذكار","اذكار"]))
+
+async def akar(client: Client, message: Message):
+
+      a = random.choice(txt)
+
+      await message.reply(
+
+        f"{a}")
