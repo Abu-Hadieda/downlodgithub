@@ -658,28 +658,6 @@ def callback_data(call):
  الرابط <<
  المطور <<*""",parse_mode="markdown",reply_markup=p3)
   
-    if call.data == "A2":
-      p3 = types.InlineKeyboardMarkup()
-      s0 = types.InlineKeyboardButton(text = "رجوع",callback_data="s0")
-      p3.add(s0)
-      app.edit_message_text(chat_id=call.message.chat.id,message_id=call.message.message_id,text="""*اوامر التسلية
-  - - - - - - - - - - - - - 
- ريمكس <<
- شعر << 
- اذكار<<
- صور تمبل <<
- التقويم <<
- غنيلي <<
- كت تويت <<
- حسابي <<
- صورتي <<
- اسمي <<
- الوقت <<
- التاريخ <<
- تاك باليوزر <<
- الرابط <<
- المطور <<*""",parse_mode="markdown",reply_markup=p3)
-  
 #####+#####
 u = 70
 a = 1
