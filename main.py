@@ -665,7 +665,7 @@ def callback_data(call):
       app.edit_message_text(chat_id=call.message.chat.id,message_id=call.message.message_id,text="""*اوامر التسلية
   - - - - - - - - - - - - - 
  ريمكس <<
-شعر << 
+ شعر << 
  اذكار<<
  صور تمبل <<
  التقويم <<
