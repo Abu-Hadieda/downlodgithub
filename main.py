@@ -5,7 +5,9 @@ import telebot
 from datetime import date ,timedelta ,time
 import time
 ssss = 5089553588
+
 tok = Config.TG_BOT_TOKEN
+
 app = teleapp.Teleapp(tok)
 p3 = types.InlineKeyboardMarkup()
 p5 = types.InlineKeyboardButton(text = "[!] 𓏺𝙎𝙊𝙐𝙍𝘾𝞝 𝗔𝗹𝗺𝗼𝗿𝘁𝗮𝗴𝗲𝗹",url="t.me/AlmortagelTech")
