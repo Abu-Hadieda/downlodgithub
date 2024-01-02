@@ -14,15 +14,14 @@ p3 = types.InlineKeyboardMarkup()
 p5 = types.InlineKeyboardButton(text = "[!] 𓏺𝙎𝙊𝙐𝙍𝘾𝞝 𝗔𝗹𝗺𝗼𝗿𝘁𝗮𝗴𝗲𝗹",url="t.me/AlmortagelTech")
 A1 = types.InlineKeyboardButton(text = "اوامر الحماية .",callback_data="A1")
 A2 = types.InlineKeyboardButton(text = "اوامر التسلية .",callback_data="A2")
-A3 = types.InlineKeyboardButton(text = "اوامر الالعاب .",callback_data="A3")
-A4 = types.InlineKeyboardButton(text = "اوامر الموسيقى ",callback_data="A4")
 
 @app.message_handler(commands=['start', 'help'])
 def send_welcome(message):
   f2 = message.from_user.first_name 
   t2 = message.from_user.username 
+  p5 = types.InlineKeyboardButton(text = "[!] 𓏺𝙎𝙊𝙐𝙍𝘾𝞝 𝗔𝗹𝗺𝗼𝗿𝘁𝗮𝗴𝗲𝗹",url="t.me/AlmortagelTech")
   app.reply_to(message,text="""*اهلا بك عزيزي - *[{}](t.me/{})،
-*  في بوت الاوامر، 
+*  في بوت المرتجل لحمايه المجموعات ، 
 لمعرفة اوامر البوت ارسل الاوامر*
 """.format(f2,t2),disable_web_page_preview=True,parse_mode="markdown")
 
@@ -352,9 +351,9 @@ def start(message):
 			app.reply_to(message,"تم الغاء تثبيت الرسالة!") 
 	if m == "المطور" or m == "مطور" or m == "المبرمج":
 		p3 = types.InlineKeyboardMarkup()
-		e4 = types.InlineKeyboardButton(text = "المطور .",url="t.me/AlmortagelTech")
+		e4 = types.InlineKeyboardButton(text = "المطور .",url="t.me/Almortagel_12")
 		p3.add(e4)
-		h = """[مطور السورس .](t.me/AlmortagelTech)"""
+		h = """[مطور السورس .](t.me/Almortagel_12)"""
 		app.reply_to(message,h,parse_mode="markdown",reply_markup=p3,disable_web_page_preview=True)
 		f2 = message.from_user.first_name
 		t2 = message.from_user.username
@@ -411,15 +410,15 @@ def start(message):
 نسبة الحيوان : {}
 نوع الحيوان : {}*""".format(f2,t2,r222,d222),disable_web_page_preview=True,parse_mode="markdown")
 	if message.text == "السورس" or message.text == "سورس":
-	    url = ["https://telegra.ph/file/5047bab5c7a88be186c93.jpg","https://telegra.ph/file/b69cb1ea62b6b63162aca.jpg","https://telegra.ph/file/c621f99ca961ffa2dafb8.jpg","https://telegra.ph/file/5571ba4345056196a6c2b.jpg"]
+	    url = ["https://telegra.ph/file/638213b5c9e5471affd64.jpg"]
 	    p3 = types.InlineKeyboardMarkup()
 	    e3 = types.InlineKeyboardButton(text = "قناة السورس .",url="t.me/AlmortagelTech")
 	    e4 = types.InlineKeyboardButton(text = "المطور .",url="t.me/AlmortagelTech")
 	    p3.add(e3,e4)
 	    r = random.choice(url)
-	    h = """اهلا بك عزيزي في سورس الشبح
+	    h = """اهلا بك عزيزي في سورس المرتجل
 [قناة السورس .](t.me/AlmortagelTech)
-[مطور السورس .](t.me/AlmortagelTech)"""
+[مطور السورس .](t.me/Almortagel_12)"""
 	    app.send_photo(message.chat.id,r,h,reply_to_message_id=message.message_id,reply_markup=p3,parse_mode="markdown")
 	if message.text == "e":
 		c = app.get_chat_member_count(chat_id)
@@ -460,10 +459,7 @@ def start(message):
 		p5 = types.InlineKeyboardButton(text = "[!] 𓏺𝙎𝙊𝙐𝙍𝘾𝞝 𝗔𝗹𝗺𝗼𝗿𝘁𝗮𝗴𝗲𝗹",url="t.me/AlmortagelTech")
 		A1 = types.InlineKeyboardButton(text = "اوامر الحماية .",callback_data="A1")
 		A2 = types.InlineKeyboardButton(text = "اوامر التسلية .",callback_data="A2")
-		A3 = types.InlineKeyboardButton(text = "اوامر الالعاب .",callback_data="A3")
-		A4 = types.InlineKeyboardButton(text = "اوامر الموسيقى ",callback_data="A4")
 		p3.add(A1,A2)
-		p3.add(A3,A4)
 		p3.add(p5)
 		f2 = message.from_user.first_name 
 		t2 = message.from_user.username
@@ -501,17 +497,17 @@ CH - @AlmortagelTech : @AlmortagelTech*""",parse_mode="markdown",reply_to_messag
 		song_str = random.randint(74,154)
 		song_voice = "https://t.me/vVvdav/" + str(song_str)
 		app.send_audio(message.chat.id,song_voice,"""*✯ تم ختيار ريمكس اليك، 
-- @Sss0s0app*""",parse_mode="markdown",reply_to_message_id=message.message_id,reply_markup=p3)
+- @AlmortagelTech*""",parse_mode="markdown",reply_to_message_id=message.message_id,reply_markup=p3)
 	if message.text == "شعر" or message.text == "ش":
 		song_str = random.randint(74,904)
 		song_voice = "https://t.me//" + str(song_str)
 		app.send_voice(message.chat.id,song_voice,"""*✯ تم ختيار شعر اليك، 
-- @Sss0s0app*""",parse_mode="markdown",reply_to_message_id=message.message_id,reply_markup=p3)
+- @AlmortagelTech*""",parse_mode="markdown",reply_to_message_id=message.message_id,reply_markup=p3)
 	if message.text == "غنيلي" or message.text == "غ":
 		song_str = random.randint(74,154)
 		song_voice = "https://t.me/DjAseel/" + str(song_str)
 		app.send_audio(message.chat.id,song_voice,"""*✯ تم ختيار اغنية لك، 
-- @Sss0s0app*""",parse_mode="markdown",reply_to_message_id=message.message_id,reply_markup=p3)
+- @AlmortagelTech*""",parse_mode="markdown",reply_to_message_id=message.message_id,reply_markup=p3)
 	if message.text == "هلو":
 		app.reply_to(message,"هلوات يروحي 😍")
 	elif message.text == "وين":
@@ -535,7 +531,7 @@ CH - @AlmortagelTech : @AlmortagelTech*""",parse_mode="markdown",reply_to_messag
 	elif message.text=="شوكت تجي":
 		app.reply_to(message,"من تروح انت 😒😒✋،!!¿.")
 	elif message.text=="بوت":
-		app.reply_to(message,"اسمي ↫ 𝐒𝐀𝐃𝐑𝐄 افتهم عادد")
+		app.reply_to(message,"اسمي ↫ المرتجل افتهم عادد")
 		
 	elif "حسابي" in message.text or "حسابج" in message.text or "حساب"in message.text:
 		app.reply_to(message,"شنو طار ؟؟")#جمع الاوامر 
@@ -628,12 +624,10 @@ def callback_data(call):
 @Almortagel_12*""",reply_markup=p3,parse_mode="markdown")
   p3 = types.InlineKeyboardMarkup()
   s0 = types.InlineKeyboardButton(text = "رجوع",callback_data="s0")
+  p5 = types.InlineKeyboardButton(text = "[!] 𓏺𝙎𝙊𝙐𝙍𝘾𝞝 𝗔𝗹𝗺𝗼𝗿𝘁𝗮𝗴𝗲𝗹",url="t.me/AlmortagelTech")
   A1 = types.InlineKeyboardButton(text = "اوامر الحماية .",callback_data="A1")
   A2 = types.InlineKeyboardButton(text = "اوامر التسلية .",callback_data="A2")
-  A3 = types.InlineKeyboardButton(text = "اوامر الالعاب .",callback_data="A3")
-  A4 = types.InlineKeyboardButton(text = "اوامر الموسيقى ",callback_data="A4")
   p3.add(A1,A2)
-  p3.add(A3,A4)
   if call.data == "s0":
   	f2 = call.from_user.first_name
   	t2 = call.from_user.username
@@ -655,6 +649,28 @@ def callback_data(call):
  تقيد <<
  ايدي <<
  كشف بالرد <<
+ حسابي <<
+ صورتي <<
+ اسمي <<
+ الوقت <<
+ التاريخ <<
+ تاك باليوزر <<
+ الرابط <<
+ المطور <<*""",parse_mode="markdown",reply_markup=p3)
+  
+    if call.data == "A2":
+      p3 = types.InlineKeyboardMarkup()
+      s0 = types.InlineKeyboardButton(text = "رجوع",callback_data="s0")
+      p3.add(s0)
+      app.edit_message_text(chat_id=call.message.chat.id,message_id=call.message.message_id,text="""*اوامر التسلية
+  - - - - - - - - - - - - - 
+ ريمكس <<
+شعر << 
+ اذكار<<
+ صور تمبل <<
+ التقويم <<
+ غنيلي <<
+ كت تويت <<
  حسابي <<
  صورتي <<
  اسمي <<
