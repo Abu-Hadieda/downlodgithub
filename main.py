@@ -16,10 +16,22 @@ def msgs(message):
     if text == "تلاو" or text == "تلاوات" or text == "تلاوة":
         voice_url = "https://t.me/ALMORTAGELRSK/" + str(random.randint(7, 276))
         bot.send_voice(message.chat.id, voice_url, caption="« صلي على سيدنا محمد ﷺ »", reply_to_message_id=message.message_id, reply_markup=telebot.types.InlineKeyboardMarkup().row(
-            telebot.types.InlineKeyboardButton(text='✧ - المطور 🌐', url='https://t.me/ELHYBA'),
-            telebot.types.InlineKeyboardButton(text='✧ - قناة التحديثات', url='https://t.me/Source_Ze')))
+            telebot.types.InlineKeyboardButton(text='✧ - المطور 🌐', url='https://t.me/Almortagel_12'),
+            telebot.types.InlineKeyboardButton(text='✧ - قناة مطور البوت', url='https://t.me/AlmortagelTech')))
+            
+@bot.message_handler(func=lambda message: True)
+def msgs(message):
+    text = message.text
+    if text == "عبدالباسط عبدالصمد" or text == "الشيخ عبدالباسط":
+        voice_url = "https://t.me/telawatnader/" + str(random.randint(7, 265))
+        bot.send_voice(message.chat.id, voice_url, caption="« صلي على سيدنا محمد ﷺ »", reply_to_message_id=message.message_id, reply_markup=telebot.types.InlineKeyboardMarkup().row(
+            telebot.types.InlineKeyboardButton(text='✧ - المطور 🌐', url='https://t.me/Almortagel_12'),
+            telebot.types.InlineKeyboardButton(text='✧ - قناة مطور البوت', url='https://t.me/AlmortagelTech')))
 
-print("تم تشغيل البوت لو وقف شي كلمني @ELHYBA!")
+bot.polling()
+
+
+print("تم تشغيل البوت لو وقف شي كلمني @Almortagel_12!")
 bot.polling()
 
 @app.on_message(command(["تلاوات", "تلاوة"]))
@@ -38,5 +50,5 @@ async def ihd(client: Client, message: Message):
     )
 
 #مبرمج الملف @Almortagel_12
-#مطور الملف @ELHYBA
+#مطور الملف @Almortagel_12
 #جميع الحقوق محفوظه لسورس زد إي

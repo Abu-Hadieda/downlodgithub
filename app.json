@@ -8,7 +8,7 @@
 		"python",
 		"telethon"
 	],
-	"repository": "https://github.com/modymesourceze/telawat",
+	"repository": "https://github.com/Almortage/tlawat",
     "env": {
         "TG_BOT_TOKEN": {
             "description": "Your Telegram Bot Token from @BotFather",
