@@ -1,7 +1,6 @@
 from config import Config
 import telebot
 import random
-import requests ,  re , telebot;from telebot.types import InlineKeyboardButton as Btn , InlineKeyboardMarkup as Mak;from fake_useragent import UserAgent
 # مصدر الملف: قناتي: AlmortagelTech | مبرمج الملف: Almortagel8
 
 tok = Config.TG_BOT_TOKEN
