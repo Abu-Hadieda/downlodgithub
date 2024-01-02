@@ -9,7 +9,7 @@ ssss = 5089553588
 
 tok = Config.TG_BOT_TOKEN
 
-bot = telebot.TeleBot(tok)
+app = telebot.TeleBot(tok)
 p3 = types.InlineKeyboardMarkup()
 p5 = types.InlineKeyboardButton(text = "[!] 𓏺𝙎𝙊𝙐𝙍𝘾𝞝 𝗔𝗹𝗺𝗼𝗿𝘁𝗮𝗴𝗲𝗹",url="t.me/AlmortagelTech")
 A1 = types.InlineKeyboardButton(text = "اوامر الحماية .",callback_data="A1")
