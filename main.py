@@ -22,7 +22,7 @@ def msgs(message):
 @bot.message_handler(func=lambda message: True)
 def msgs(message):
     text = message.text
-    if text == "عبدالباسط عبدالصمد" or text == "الشيخ عبدالباسط":
+    if text == "عبدالباسط" or text == "عبدالباسط عبدالصمد" or text == "الشيخ عبدالباسط":
         voice_url = "https://t.me/telawatnader/" + str(random.randint(7, 265))
         bot.send_voice(message.chat.id, voice_url, caption="« صلي على سيدنا محمد ﷺ »", reply_to_message_id=message.message_id, reply_markup=telebot.types.InlineKeyboardMarkup().row(
             telebot.types.InlineKeyboardButton(text='✧ - المطور 🌐', url='https://t.me/Almortagel_12'),
@@ -49,6 +49,50 @@ async def ihd(client: Client, message: Message):
         )
     )
 
+@app.on_message(command(["سوره", "قران"]))
+async def ihd(client: Client, message: Message):
+    rl = random.randint(2,82)
+    url = f"https://t.me/opuml/{rl}"
+    await client.send_voice(message.chat.id,url,caption="🥹♥ ¦ تـم اختيـار ايـه قرآنيه لـك",parse_mode="html",
+    reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+                ],
+            ]
+        )
+    )
+
+@app.on_message(command(["الشيخ", "النقشبندي", "نقشبندي"]))
+async def ihd(client: Client, message: Message):
+    rl = random.randint(2,114)
+    url = f"https://t.me/ggcnjj/{rl}"
+    await client.send_voice(message.chat.id,url,caption="🥹♥ ¦ تـم اختيـار الشيخ نقشبندي لـك",parse_mode="html",
+    reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+                ],
+            ]
+        )
+    )
+    
+@app.on_message(command(["عبدالباسط", "عبدالباسط عبدالصمد"]))
+async def ihd(client: Client, message: Message):
+    rl = random.randint(7,265)
+    url = f"https://t.me/telawatnader/{rl}"
+    await client.send_voice(message.chat.id,url,caption="🥹♥ ¦ تـم اختيـار الشيخ عبدالباسط لـك",parse_mode="html",
+    reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        message.from_user.first_name, url=f"https://t.me/{message.from_user.username}")
+                ],
+            ]
+        )
+    )
 #مبرمج الملف @Almortagel_12
 #مطور الملف @Almortagel_12
 #جميع الحقوق محفوظه لسورس زد إي
