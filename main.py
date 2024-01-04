@@ -2,7 +2,6 @@ from config import Config
 import re
 import telebot
 from telebot.types import InlineKeyboardButton as b, InlineKeyboardMarkup as mk
-from kvsqlite.sync import Client
 import random
 db = Client("stupid.gay")
 
