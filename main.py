@@ -2,7 +2,6 @@
 #في سطر 25 و 28 استبدل 5089553588 بايدي from config import Config
 from config import Config
 import telebot
-import telebot
 import requests
 import os
 
