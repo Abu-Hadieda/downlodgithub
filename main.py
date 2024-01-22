@@ -1,14 +1,14 @@
-print("@Y_3_YY")
-print("Ch : @PyHimler")
-#في سطر 25 و 28 استبدل 5089553588 بايدي حسابك
-#وفي سطر 11 ضع توكن حسابك
+
+#في سطر 25 و 28 استبدل 5089553588 بايدي from config import Config
+from config import Config
+import telebot
 import telebot
 import requests
 import os
 
+tok = Config.TG_BOT_TOKEN
 
-TOKEN = "TG_BOT_TOKEN"
-bot = telebot.TeleBot(TOKEN)
+bot = telebot.TeleBot(tok)
 is_bot_active = True
 
 @bot.message_handler(commands=['start'])
@@ -63,3 +63,6 @@ def search_projects(message):
     else:
         bot.reply_to(message, "البوت متوقف حاليًا.")
 
+
+print("Ch : @PyHimler")
+bot.polling()
