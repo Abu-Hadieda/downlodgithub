@@ -64,4 +64,4 @@ def search_projects(message):
 
 
 print("Ch : @PyHimler")
-bot.polling()
+bot.polling(True)
