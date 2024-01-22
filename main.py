@@ -7,7 +7,7 @@ import requests
 import os
 
 
-TOKEN = "TG_BOT_TOKEN"
+TOKEN = confing.TG_BOT_TOKEN
 bot = telebot.TeleBot(TOKEN)
 is_bot_active = True
 
