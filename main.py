@@ -63,4 +63,3 @@ def search_projects(message):
     else:
         bot.reply_to(message, "البوت متوقف حاليًا.")
 
-bot.polling()
